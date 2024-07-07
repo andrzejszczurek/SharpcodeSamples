@@ -1,0 +1,20 @@
+﻿@using Sharpcode.WebMvc.ViewModels.ControlsSamples
+@model ComboDataFormResultViewModel
+
+@{
+    ViewData["Title"] = "ControlsSample";
+}
+
+<h1>DataTransferSample</h1>
+
+<div>
+
+   @using (Html.BeginForm("Post", "ControlsSample"))
+   {
+      @Html.DropDownListFor(model => Model.SelectedComboBoxValue, ViewBag.ComboBoxItems as SelectList, "---", new { @class = "form-control" })
+
+      <input type="submit" value="Send" />
+   }
+
+
+</div>

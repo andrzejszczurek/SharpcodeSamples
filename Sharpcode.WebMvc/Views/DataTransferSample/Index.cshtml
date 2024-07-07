@@ -1,0 +1,40 @@
+﻿@using Sharpcode.WebMvc.ViewModels
+@model DataTransferSampleViewModel
+
+@{
+    ViewData["Title"] = "DataTransferSample";
+}
+
+<h1>DataTransferSample</h1>
+
+<div>
+   <h4>Akcje</h4>
+   <a asp-controller="DataTransferSample" asp-action="SampleModelNotSet" class="btn btn-primary">
+      SampleModelNotSet</a>
+
+   <a asp-controller="DataTransferSample" asp-action="ModelSetWithId" asp-route-id="555" class="btn btn-secondary">
+      ModelSetWithId
+   </a>
+</div>
+
+<div>
+   <h4>Wyniki</h4>
+   @if (Model is null)
+   {
+      <p>null model</p>
+   }
+   else if (!Model.IsModelSet)
+   {
+      <p>model not set</p>
+   }
+   else
+   {
+      <p>model set</p>
+
+      @if (Model.Type == DataTransferSampleAction.SetId)
+      {
+         <p>Id: @Model.Id</p>
+      }
+   }
+
+</div>

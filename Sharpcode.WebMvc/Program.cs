@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Sharpcode.WebMvc.Helpers;
+
 namespace Sharpcode.Domain
 {
    public class Program
@@ -8,6 +13,8 @@ namespace Sharpcode.Domain
 
          // Add services to the container.
          builder.Services.AddControllersWithViews();
+
+         builder.Services.AddSingleton<TopMenuProvider>();
 
          var app = builder.Build();
 
