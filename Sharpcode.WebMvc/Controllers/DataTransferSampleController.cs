@@ -6,7 +6,10 @@ public class DataTransferSampleController : Controller
 {
    public IActionResult Index()
    {
+
+
       return View();
+
    }
 
    public IActionResult SampleModelNotSet()

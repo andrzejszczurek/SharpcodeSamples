@@ -1,0 +1,39 @@
+﻿@using Sharpcode.WebMvc.ViewModels.ControlsSamples
+@model ControlFormsViewModel
+
+<div>
+
+   @using (Html.BeginForm("ControlsForm", "ControlsSample", FormMethod.Post))
+   {
+      <div class="form-group">
+         @Html.LabelFor(vm => vm.Name)
+         @Html.TextBoxFor(vm => vm.Name, new { @class = "form-control" })
+      </div>
+
+      <div class="form-group">
+         @Html.LabelFor(vm => vm.Surname)
+         @Html.TextBoxFor(vm => vm.Surname, new { @class = "form-control" })
+      </div>
+
+      <div class="form-group">
+         @Html.LabelFor(vm => vm.Age)
+         @Html.TextBoxFor(vm => vm.Age, new { @class = "form-control" })
+      </div>
+
+      <div class="form-group">
+         @Html.LabelFor(vm => vm.Birtdate)
+         @Html.TextBoxFor(vm => vm.Birtdate, new { @class = "form-control" })
+      </div>
+
+      <div class="form-group">
+         @Html.LabelFor(vm => vm.Age)
+         @Html.DropDownList(nameof(ControlFormsViewModel.Gender)
+         , ViewBag.GenderComboBoxItems
+         , "-wybierz-"
+         , new { @class = "form-control" })
+      </div>
+
+      <button type="submit" class="btn btn-primary">Wyślij</button>
+   }
+
+</div>

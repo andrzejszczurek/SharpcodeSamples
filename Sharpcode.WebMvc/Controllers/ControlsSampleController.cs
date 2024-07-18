@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Sharpcode.WebMvc.ViewModels.ControlsSamples;
+using System;
 using System.Linq;
 
 namespace Sharpcode.WebMvc.Controllers;
@@ -20,5 +21,28 @@ public class ControlsSampleController : Controller
    public IActionResult Post(ComboDataFormResultViewModel vm)
    {
       return Json(vm.SelectedComboBoxValue);
+   }
+
+   [HttpGet]
+   public IActionResult Controls()
+   {
+      ViewBag.GenderComboBoxItems = Enum.GetNames<Gender>()
+         .Select(v => new SelectListItem() { Value = v, Text = v })
+         .ToList();
+
+      return View();
+   }
+
+   [HttpGet]
+   public IActionResult Toasts()
+   {
+      return View();
+   }
+
+
+   [HttpPost]
+   public IActionResult ControlsForm(ControlFormsViewModel vm)
+   {
+      return Json(vm);
    }
 }
